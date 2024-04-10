@@ -1,1 +1,1 @@
-# person_diary
+# Person diary
