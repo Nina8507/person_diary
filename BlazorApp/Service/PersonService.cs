@@ -5,7 +5,7 @@ using BlazorApp.Models;
 namespace BlazorApp.Service;
 
 public class PersonService:IService<Person>{
-  private readonly string uri = "https://5006:8082";
+  private readonly string uri = "https://localhost:5006";
   private readonly HttpClient httpClient;
 
   public PersonService(){
@@ -32,7 +32,7 @@ public class PersonService:IService<Person>{
   }
 
     public async Task<Person> GetByIdAsync(int personId) {
-      HttpResponseMessage response = await httpClient.GetAsync($"https://5006:8082/Person/{personId}");
+      HttpResponseMessage response = await httpClient.GetAsync($"https://localhost:5006/Person/{personId}");
       if(response.IsSuccessStatusCode){
         Console.WriteLine(response.StatusCode);
       } 
@@ -68,7 +68,7 @@ public class PersonService:IService<Person>{
 
     public async Task RemoveAsync(int personId)
     {
-      HttpResponseMessage response = await httpClient.DeleteAsync($"https://5006:8082/Person/{personId}");
+      HttpResponseMessage response = await httpClient.DeleteAsync($"https://localhost:5006/Person/{personId}");
       if(response.IsSuccessStatusCode)
       {
         Console.WriteLine(response.StatusCode);
